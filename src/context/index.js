@@ -98,7 +98,6 @@ class Provider extends React.Component
                 }
             }))
         }catch(e){
-            console.log(e);
             this.setState(pstate=>({
                 ...pstate,
                 film:{
