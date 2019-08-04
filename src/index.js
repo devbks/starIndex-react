@@ -1,12 +1,20 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter, Route} from 'react-router-dom';
+import {PageHome,PageProfile,PageHeader} from './component/views/';
+import Provider from './context';
+import './style/Style.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Navigation = () => <BrowserRouter>
+    <Provider>
+        <Route path="/" component={PageHeader}/>
+        <Route path="/page/:pageId" component={PageHome}/>
+        <Route exact path="/page/:pageId/:id" component={PageProfile}/>
+    </Provider>
+</BrowserRouter>
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(<Navigation />, document.getElementById('root'));
+
 serviceWorker.unregister();
