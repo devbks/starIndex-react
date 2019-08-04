@@ -11,14 +11,16 @@ class Movie extends React.PureComponent{
     render()
     {
         const {film,status,data} = this.props.ctx.film;
-        return <ul className="movie-list">
+        return <React.Fragment>
+                <h3>Films:</h3>
+                <ul className="movie-list">
             {
                 (status)?
                     (status===2)?
                         data.map((item,i)=>{
                             return <li key={i}>
                                 <b>{item.title}</b>
-                                <span>Release Date: {item.release_date}</span>
+                                <span>Release: {item.release_date}</span>
                                 <span>Director: {item.producer}</span>
                             </li>
                         })
@@ -26,6 +28,7 @@ class Movie extends React.PureComponent{
                 :<NotFound/>
             }
         </ul>
+            </React.Fragment>
     }
 }
 

@@ -55,7 +55,11 @@ body
         list-style-type:none;
         margin: 0px;
         padding: 5px;
+        font-size: 0.8em;
         li{
+            b{
+                font-size: 1.2em;
+            }
             padding: 10px;
             min-width: 200px;
             background: #fff;
