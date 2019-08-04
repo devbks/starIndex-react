@@ -1,5 +1,7 @@
 import React,{useEffect} from 'react';
 import {Consumer} from '../../context';
+import { Navbar } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 class Header extends React.PureComponent{
     componentWillMount(){
@@ -9,7 +11,11 @@ class Header extends React.PureComponent{
     {
         let ctx= this.props.ctx;
         return <div>
-            <h1>This is page header</h1>
+            <Navbar >
+                <Link to="/"><img src={require('../../asset/logo.png')}/></Link>
+            </Navbar>
+            <div id="bg-star1"></div>
+            <div id="bg-star2"></div>
         </div>
     }
 }

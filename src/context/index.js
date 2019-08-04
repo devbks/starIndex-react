@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import { Exception } from 'handlebars';
 
 const Context = React.createContext("starIndex");
 export const Consumer = Context.Consumer;
@@ -54,6 +55,7 @@ class Provider extends React.Component
                         status:0
                     }
                 }))
+                this.props.history.push("/error");
             })
         }else{
             return false;

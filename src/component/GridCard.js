@@ -9,10 +9,12 @@ const GridCard = (props) => <Consumer>
             const {pageId,status} = ctx.page;
             let id = props.id;
             const data = ctx.page.data[pageId-1][id];
-            return <Card className="text-center">
-                <Card.Body>
+            return <Card className="text-center" bg="light">
+                <Card.Header>
                     <Card.Title>{data.name}</Card.Title>
-                    <Card.Title>D.O.B {data.birth_year}</Card.Title>
+                </Card.Header>
+                <Card.Body>
+                    <Card.Text><b>D.O.B</b> {data.birth_year}</Card.Text>
                     <Button onClick={()=>{
                         props.history.push('/page/'+pageId+"/"+id);
                     }} variant="primary">Detail</Button>

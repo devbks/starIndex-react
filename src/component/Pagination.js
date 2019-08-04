@@ -13,11 +13,11 @@ const Pagination= (props) =><Consumer>
                 {i}
             </BPagination.Item>
         });
-        return <Container className="centered">
+        return <div className="pagination">
             <BPagination>
                 {pages}
             </BPagination>
-        </Container>
+        </div>
     }
 }
 </Consumer>

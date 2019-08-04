@@ -1,6 +1,8 @@
 import React,{useEffect} from 'react';
 import { Consumer } from '../context';
 import {Card as Bcard} from 'react-bootstrap/Card'
+import Loading from './Loading';
+import NotFound from './NotFound';
 
 class Movie extends React.PureComponent{
     componentWillMount(){
@@ -20,8 +22,8 @@ class Movie extends React.PureComponent{
                                 <span>Director: {item.producer}</span>
                             </li>
                         })
-                    :<h3>Loading...</h3>
-                :<h3>No movies found</h3>
+                    :<Loading size="small"/>
+                :<NotFound/>
             }
         </ul>
     }

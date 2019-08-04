@@ -5,14 +5,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {PageHome,PageProfile,PageHeader} from './component/views/';
 import Provider from './context';
-import './style/Style.scss';
 import Pagination from './component/Pagination';
+import NotFound from './component/NotFound';
+import './style/Style.scss';
 
 const Navigation = () => <BrowserRouter>
     <Provider>
         <Route path="/:page?/:pageId?" component={PageHeader}/>
+        <Route exact path="/" component={PageHome}/>
         <Route path="/page/:pageId" component={PageHome}/>
         <Route exact path="/page/:pageId/:id" component={PageProfile}/>
+        <Route exact path="/error" component={NotFound}/>
         <Pagination/>
     </Provider>
 </BrowserRouter>

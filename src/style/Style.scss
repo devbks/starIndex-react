@@ -1,6 +1,19 @@
 $primary-color: #01408b;
-$secondary-color: #aaa;
-
+$bg-color: #444;
+body
+{
+    background: radial-gradient( #1B2A3A 0%, #090A0A 100%);
+    font-family: josefin sans;
+}
+.navbar
+{
+    a
+    {
+        margin: 0px auto;
+    }
+    background: rgba(#000,0.9);
+    margin-bottom: 50px;
+}
 .profile-body
 {
     width: 100%;
@@ -54,6 +67,51 @@ $secondary-color: #aaa;
         }
     }
 }
+
+// n is number of stars required
+@function randomShadow ($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  @for $i from 2 through $n{
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF'
+  }
+  @return unquote($value);
+}
+$shadows-small:  randomShadow(700);
+
+
+#bg-star1
+{
+    width: 1px;
+    height: 1px;
+    animation: animatedStar 50s linear infinite;
+    box-shadow: $shadows-small;
+}
+#bg-star2
+{
+    width: 1px;
+    height: 1px;
+    animation: animatedStarInv 50s linear infinite;
+    box-shadow: $shadows-small;
+}
+@keyframes animatedStar
+{
+    from{
+        transform: translateY(0px);
+    }    
+    to{
+        transform: translateY(-1000px);
+    }    
+}
+@keyframes animatedStarInv
+{
+    from{
+        transform: translateY(-1000px);
+    }    
+    to{
+        transform: translateY(1000px);
+    }    
+}
+
 .row
 {
     .col-sm-4
@@ -61,18 +119,45 @@ $secondary-color: #aaa;
         .card
         {
             margin: 5px 0px;
-            border: 1px solid red;
-            .card-title
-            {
-                color: $primary-color;
-            }
         }
     }
 }
-.centered
+.pagination
 {
-    margin: 0px auto;
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    ul
+    {
+        margin: 0px auto;
+    }
+}
+.loading
+{
+    width: 100%;
+    min-height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;    
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    &.small
+    {
+        min-height: 100px;
+        img
+        {
+            width: 40px;
+        }
+        h2{
+            font-size:0.5em;
+        }
+    }
+}
+
+.not-found
+{
+    padding: 10px;
+    color: #fff;
 }
