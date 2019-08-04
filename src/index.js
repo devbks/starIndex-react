@@ -6,12 +6,14 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import {PageHome,PageProfile,PageHeader} from './component/views/';
 import Provider from './context';
 import './style/Style.scss';
+import Pagination from './component/Pagination';
 
 const Navigation = () => <BrowserRouter>
     <Provider>
-        <Route path="/" component={PageHeader}/>
+        <Route path="/:page?/:pageId?" component={PageHeader}/>
         <Route path="/page/:pageId" component={PageHome}/>
         <Route exact path="/page/:pageId/:id" component={PageProfile}/>
+        <Pagination/>
     </Provider>
 </BrowserRouter>
 
