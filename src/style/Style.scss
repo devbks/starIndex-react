@@ -1,4 +1,4 @@
-$primary-color: #01408b;
+$primary-color: #ffc108;
 $bg-color: #444;
 body
 {
@@ -40,7 +40,7 @@ body
                 display: block;
                 width: 100%;
                 padding: 10px;
-                background: rgba($primary-color,0.2);
+                background: rgba($primary-color,0.1);
             }
         }
     }
@@ -127,9 +127,20 @@ $shadows-small:  randomShadow(700);
     text-align: center;
     margin-top: 50px;
     padding: 20px;
+    background: rgba($color: #000000, $alpha: 0.9);
     ul
     {
         margin: 0px auto;
+        .active .page-link
+        {
+            background: $primary-color;
+            color: #000;
+        }
+        .page-link
+        {
+            border: 0px;
+            color: #000;
+        }
     }
 }
 .loading

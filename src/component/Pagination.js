@@ -14,8 +14,10 @@ const Pagination= (props) =><Consumer>
             </BPagination.Item>
         });
         return <div className="pagination">
-            <BPagination>
+            <BPagination >
+                <BPagination.First onClick={()=>ctx.route('/page/1',1)}/>
                 {pages}
+                <BPagination.Last onClick={()=>ctx.route('/page/'+Math.ceil(count/10),Math.ceil(count/10))}/>
             </BPagination>
         </div>
     }
